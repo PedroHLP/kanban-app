@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://suramu:appdata29@bielzera.1suha15.mongodb.net/?retryWrites=true&w=majority&appName=Bielzera', {
+mongoose.connect('mongodb+srv://suramu:appdata29@bielzera.1suha15.mongodb.net/kanban?retryWrites=true&w=majority&appName=Bielzera', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
