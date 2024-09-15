@@ -11,7 +11,6 @@ mongoose.connect('mongodb+srv://suramu:appdata29@bielzera.1suha15.mongodb.net/ka
   useUnifiedTopology: true,
 });
 
-// Atualização do Schema para incluir 'description'
 const taskSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
@@ -24,7 +23,6 @@ const taskSchema = new mongoose.Schema({
 
 const Task = mongoose.model('Task', taskSchema);
 
-// Rota para obter todas as tarefas
 app.get('/tasks', async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -34,7 +32,6 @@ app.get('/tasks', async (req, res) => {
   }
 });
 
-// Rota para criar uma nova tarefa
 app.post('/tasks', async (req, res) => {
   const { title, description, status } = req.body;
 
@@ -51,7 +48,6 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-// Rota para atualizar uma tarefa existente
 app.put('/tasks/:id', async (req, res) => {
   const { title, description, status } = req.body;
 
@@ -70,7 +66,6 @@ app.put('/tasks/:id', async (req, res) => {
   }
 });
 
-// Rota para deletar uma tarefa
 app.delete('/tasks/:id', async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);
